@@ -18,11 +18,7 @@ out solutions to users.
  - Firstly, the program will run by reading a ROADMAP file, and FLIGHTMAP file in command line argument. 
 *However, you will need these file to completely run the program.
  - Secondly, you can print the map to check the cities, roads, and flights.
- - By checking your city-reaches, you can use Breath-first search.
- - By checking another way of taking a path to the destination, Depthfirst-search is in command.
- - By finding the shortest distant travel, Dijikstra's algorithm is in command.
- - Diving the conditions in to two major paths, Road trip and Flight Trip. Both are possibly combined.
- - Calculating the time cost of paths.
+ - By selecting Menu, it will calculate and implement each function.
  - There is no other dependent file; other than ROADMAP.txt and FLIGHTMAP.txt which I will provide in the repository folder.
 
 3. Dependencies
