@@ -20,6 +20,7 @@ out solutions to users.
  - Secondly, you can print the map to check the cities, roads, and flights.
  - By selecting Menu, it will calculate and implement each function.
  - There is no other dependent file; other than ROADMAP.txt and FLIGHTMAP.txt which I will provide in the repository folder.
+ - link to documentation program: https://github.com/trsteve/finalproject-CSCI2270-trsteve/blob/master/travelKit-documentation.zip
 
 3. Dependencies
  - There is no other dependent file; other than ROADMAP.txt and FLIGHTMAP.txt which I will provide in the repository folder.
