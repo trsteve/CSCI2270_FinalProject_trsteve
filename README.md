@@ -36,6 +36,9 @@ out solutions to users.
  - N/A
 
 7. Open issues/bugs
- - N/A
+ - bugs
+   - 4/26/2015 1:39AM "Add new road for a new recent city: it does not display as road has been added when I printed map. It displays that I added a flight connection but no cost
+                       ;however, the program has the road cost as usual, but just not display as Road connection. I have been trying to find the bug and any issue. Debugging"
+
 
 ==== Copyright 2015 by Theerarun Tubnonghee ====
