@@ -1,0 +1,45 @@
+# depslib dependency file v1.0
+1429935059 source:/home/user/Dropbox/CSCI2270/ASSIGNMENT/A9/travelAnalyzer/src/travelClass.cpp
+	"travelClass.h"
+	<vector>
+	<iostream>
+	<stack>
+	<queue>
+
+1429935059 /home/user/Dropbox/CSCI2270/ASSIGNMENT/A9/travelAnalyzer/include/travelClass.h
+	<vector>
+	<iostream>
+	<stack>
+	<queue>
+
+1430033565 source:/home/user/Dropbox/CSCI2270/ASSIGNMENT/FP/github-file/finalproject-CSCI2270-trsteve/travelAnalyzer/travelAnalyzer.cpp
+	"travelCal.h"
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	<stdlib.h>
+	<sstream>
+
+1429936041 source:/home/user/Dropbox/CSCI2270/ASSIGNMENT/FP/github-file/finalproject-CSCI2270-trsteve/travelAnalyzer/include/travelClass.h
+	<vector>
+	<iostream>
+	<stack>
+	<queue>
+
+1429936041 /home/user/Dropbox/CSCI2270/ASSIGNMENT/FP/github-file/finalproject-CSCI2270-trsteve/travelAnalyzer/include/travelClass.h
+	<vector>
+	<iostream>
+	<stack>
+	<queue>
+
+1430033535 source:/home/user/Dropbox/CSCI2270/ASSIGNMENT/FP/github-file/finalproject-CSCI2270-trsteve/travelAnalyzer/src/travelCal.cpp
+	"travelCal.h"
+	"math.h"
+
+1430033550 /home/user/Dropbox/CSCI2270/ASSIGNMENT/FP/github-file/finalproject-CSCI2270-trsteve/travelAnalyzer/include/travelCal.h
+	<vector>
+	<iostream>
+	<stack>
+	<queue>
+
