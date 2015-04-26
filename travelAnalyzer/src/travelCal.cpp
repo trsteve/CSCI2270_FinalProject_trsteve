@@ -200,7 +200,9 @@ void travelCal::deleteCity(std::string name){
 
         }
     }
-    cities.erase(cities.begin()+position);
+    deleting = NULL;
+    //cities.erase(cities.begin()+position);
+    numberCities--;
 }
 
 void travelCal::deleteRoad(std::string v1,std::string v2){
