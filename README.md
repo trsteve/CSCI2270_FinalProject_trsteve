@@ -15,15 +15,17 @@ What if there is some choice of taking a plane or driving a car. What if the tim
 out solutions to users.
 
 2. How to Run
- - Firstly, the program will run by reading a ROADMAP file, and FLIGHTMAP file in command line argument. 
+ - "travelAnalyzer" is the main driver program file
+ - "travelKit" is the documentation help file
+ - The program will run by reading a "roadMap.txt" file, and "flightMap.txt" file in command line argument.
 *However, you will need these file to completely run the program.
- - Secondly, you can print the map to check the cities, roads, and flights.
+ - You can print the map to check the cities, roads, and flights.
  - By selecting Menu, it will calculate and implement each function.
  - There is no other dependent file; other than ROADMAP.txt and FLIGHTMAP.txt which I will provide in the repository folder.
  - link to documentation program: https://github.com/trsteve/CSCI2270_FinalProject_trsteve/tree/master/travelAnalyzer
 
 3. Dependencies
- - There is no other dependent file; other than roadMap.txt and flightMap.txt which I will provide in the repository folder.
+ - There is no other dependent file; other than "roadMap.txt" and "flightMap.txt" which I will provide in the repository folder.
 
 4. System Requirements
  - Since I will build a simple program using terminal, All OS-platform is worked.
