@@ -8,16 +8,15 @@
 
 using namespace std;
 
-struct city;
+struct city;//pre-initialize
 
-struct adjCity;
+struct adjCity;//pre-initialize
 
 void displayMenu();
 void displayAdd();
 void menuAdd(travelCal * tC);
 void displayDel();
 void menuDel(travelCal * tC);
-//int getFileSize(char * fileName);
 void readRoad(travelCal * tC, char * fileRoad);
 void readFlight(travelCal * tC, char * fileFlight);
 
@@ -42,12 +41,12 @@ int main(int argc, char*argv[])
         string cityName;
         switch (input)
         {
-            // print vertices
+            // print maps
             case 1:
-                tC->buildDistrict();
+                tC->buildDistrict(); //always update a district
                 tC->displayMaps();
                 break;
-            // add ...
+            // call add functions
             case 2:
                 menuAdd(tC);
                 break;
@@ -102,6 +101,7 @@ int main(int argc, char*argv[])
                     cout<<"One or more cities doesn't exist"<<endl;
                 }
                 break;
+            // call delete functions
             case 7:
                 menuDel(tC);
                 break;
@@ -175,6 +175,7 @@ void menuAdd(travelCal *tC){
                     tC->addCity(cityName);
                 }
                 break;
+            // add road
             case 2:
                 cout<<"Enter a starting city name:"<<endl;
                 getline(cin,stCity,'\n');
@@ -188,6 +189,7 @@ void menuAdd(travelCal *tC){
                     cout<<"One or more cities doesn't exist"<<endl;
                 }
                 break;
+            // add flight
             case 3:
                 cout<<"Enter a starting city name:"<<endl;
                 getline(cin,stCity,'\n');
@@ -201,9 +203,8 @@ void menuAdd(travelCal *tC){
                     cout<<"One or more cities doesn't exist"<<endl;
                 }
                 break;
-
+            //return to main menu
             case 4:
-                //cout << "Goodbye!" << endl;
                 quit2 = true;
                 break;
             // invalid input
@@ -278,9 +279,8 @@ void menuDel(travelCal *tC){
                     cout<<"One or more cities doesn't exist"<<endl;
                 }
                 break;
-
+            //return to main menu
             case 4:
-                //cout << "Goodbye!" << endl;
                 quit3 = true;
                 break;
             // invalid input
@@ -293,7 +293,7 @@ void menuDel(travelCal *tC){
     }
     return;
 }
-
+//read road map file
 void readRoad(travelCal * tC, char * fileRoad)
 {
     ifstream in_stream;
@@ -447,6 +447,7 @@ void readRoad(travelCal * tC, char * fileRoad)
         //cout<<"end of read a word"<<endl;
     }
 }
+//read flight map file
 void readFlight(travelCal * tC, char * fileFlight){
     ifstream in_stream;
     //cout << fileName << endl;

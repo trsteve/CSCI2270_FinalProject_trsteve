@@ -11,6 +11,20 @@ travelCal::~travelCal()
     //dtor
 }
 
+/*
+Function prototype:
+bool travelCal::adjFind(std::string v1, std::string v2);
+
+Function description:
+This method executes true-false whether there is existing path to the adjacent cities as prompting.
+
+Example:
+
+tC->adjFind(Boulder,Denver);
+
+Pre-condition: Unknown result whether a path is existed
+Post-condition: Function return true, if there is an adjacent path;
+*/
 bool travelCal::adjFind(std::string v1, std::string v2){
     for(int i = 0; i < cities.size(); i++){
         if(cities[i].name == v1){
@@ -24,6 +38,20 @@ bool travelCal::adjFind(std::string v1, std::string v2){
     return false;
 }
 
+/*
+Function prototype:
+bool travelCal::adjRoad(std::string v1, std::string v2);
+
+Function description:
+This method executes true-false whether there is existing road to the adjacent cities as prompting.
+
+Example:
+
+tC->adjRoad(Boulder,Denver);
+
+Pre-condition: Unknown result whether a road is existed
+Post-condition: Function return true, if there is an adjacent road;
+*/
 bool travelCal::adjRoad(std::string v1, std::string v2){
     for(int i = 0; i < cities.size(); i++){
         if(cities[i].name == v1){
@@ -41,6 +69,20 @@ bool travelCal::adjRoad(std::string v1, std::string v2){
     return false;
 }
 
+/*
+Function prototype:
+bool travelCal::adjFlight(std::string v1, std::string v2);
+
+Function description:
+This method executes true-false whether there is existing flight between the cities as prompting.
+
+Example:
+
+tC->adjRoad(Denver,Boston);
+
+Pre-condition: Unknown result whether a road is existed
+Post-condition: Function return true, if there is an connecting flight;
+*/
 bool travelCal::adjFlight(std::string v1, std::string v2){
     for(int i = 0; i < cities.size(); i++){
         if(cities[i].name == v1){
@@ -58,6 +100,21 @@ bool travelCal::adjFlight(std::string v1, std::string v2){
     return false;
 }
 
+/*
+Function prototype:
+void travelCal::addRoad(std::string v1, std::string v2, int cost);
+
+Function description:
+This method adds a road to the map; the information of the road is as entered.
+The cost parameter is the driving distance.
+
+Example:
+
+tC->addRoad(Boulder,Denver,48);
+
+Pre-condition: There is no road between two cities.
+Post-condition: Method update the road between Boulder-Denver as 48 kilometers to the map.
+*/
 void travelCal::addRoad(std::string v1, std::string v2, int cost){
 
     for(int i = 0; i < cities.size(); i++){
@@ -104,6 +161,21 @@ void travelCal::addRoad(std::string v1, std::string v2, int cost){
     }
 }
 
+/*
+Function prototype:
+void travelCal::addFlight(std::string v1, std::string v2, int cost);
+
+Function description:
+This method adds a flight to the map; the information of the flight is as entered.
+The cost parameter is the flying distance.
+
+Example:
+
+tC->addFlight(San Francisco,Denver,1980);
+
+Pre-condition: There is no connecting flight between two cities.
+Post-condition: Method update the flight between Boulder-Denver as 1980 kilometers to the map.
+*/
 void travelCal::addFlight(std::string v1, std::string v2, int cost){
 
     for(int i = 0; i < cities.size(); i++){
@@ -150,6 +222,20 @@ void travelCal::addFlight(std::string v1, std::string v2, int cost){
     }
 }
 
+/*
+Function prototype:
+void travelCal::addCity(std::string n);
+
+Function description:
+This method adds a vertex(city) to the graph(map).
+
+Example:
+
+tC->addCity(Boulder);
+
+Pre-condition: There is no Boulder in the map
+Post-condition: Method add Boulder city to the map and pre-initialize all the variable in its struct
+*/
 void travelCal::addCity(std::string n){
     bool found = false;
     for(int i = 0; i < cities.size(); i++){
@@ -172,6 +258,20 @@ void travelCal::addCity(std::string n){
 
 }
 
+/*
+Function prototype:
+void travelCal::deleteCity(std::string name);
+
+Function description:
+This method delete the city information from the map
+
+Example:
+
+tC->deleteCity(Boulder);
+
+Pre-condition: There is Boulder city in the map
+Post-condition: Method delete all connecting flights, and roads that connect to Boulder from the map, and set Boulder city to NULL.
+*/
 void travelCal::deleteCity(std::string name){
     bool found = false;
     city *deleting;
@@ -205,6 +305,20 @@ void travelCal::deleteCity(std::string name){
     numberCities--;
 }
 
+/*
+Function prototype:
+void travelCal::deleteRoad(std::string v1,std::string v2);
+
+Function description:
+This method delete the road between two cities as entered.
+
+Example:
+
+tC->deleteRoad(Boulder,Denver);
+
+Pre-condition: There is the connecting road between the cities
+Post-condition: Method delete the road connection between Boulder and Denver.
+*/
 void travelCal::deleteRoad(std::string v1,std::string v2){
     city *d1;
     for(int i = 0; i < cities.size(); i++){
@@ -226,6 +340,20 @@ void travelCal::deleteRoad(std::string v1,std::string v2){
     }
 }
 
+/*
+Function prototype:
+void travelCal::deleteFlight(std::string v1,std::string v2);
+
+Function description:
+This method delete the connecting flight between two cities as entered.
+
+Example:
+
+tC->deleteFlight(Boston,London);
+
+Pre-condition: There is the connecting flight between the cities
+Post-condition: Method delete the flight connection between Boston and London.
+*/
 void travelCal::deleteFlight(std::string v1,std::string v2){
     city *d1;
     for(int i = 0; i < cities.size(); i++){
@@ -248,7 +376,20 @@ void travelCal::deleteFlight(std::string v1,std::string v2){
 }
 
 
+/*
+Function prototype:
+bool travelCal::findCity(std::string v);
 
+Function description:
+This method return true-false whether the city is found, or the city is in the map.
+
+Example:
+
+tC->findCity(Boston);
+
+Pre-condition: Unknown result whether Boston is already in the map.
+Post-condition: Method return true, if Boston is in the map.
+*/
 bool travelCal::findCity(std::string v){
     bool found = false;
     for(int i = 0; i < cities.size(); i++){
@@ -258,14 +399,59 @@ bool travelCal::findCity(std::string v){
     }
     return found;
 }
+
+/*
+Function prototype:
+void travelCal::resetVisited();
+
+Function description:
+This method resets visited variable of each cities in the map
+
+Example:
+
+tC->resetVisited();
+
+Pre-condition: Any condition of visited variables
+Post-condition: Method resets all cities.visited to unvisited == false;
+*/
 void travelCal::resetVisited(){
     for(int i = 0; i < cities.size(); i++){
             cities[i].visited=false;
     }
 }
+
+/*
+Function prototype:
+void travelCal::setMapSize(int ss);
+
+Function description:
+This method assigns new map size, or number of cities.
+
+Example:
+
+tC->setMapSize(10);
+
+Pre-condition: Any number of cities in the map
+Post-condition: Method sets the number of cities in the map as 10 cities.
+*/
 void travelCal::setMapSize(int ss){
     numberCities = ss;
 }
+
+/*
+Function prototype:
+void travelCal::popularitize();
+
+Function description:
+This method is a void function that contains a multiple call of int popularitize for all cities.
+
+Example:
+
+tC->popularitize();
+
+Pre-condition: Any condition of popularity of each cities
+Post-condition: Method executes each city's popularity to the assigned method.
+*/
 void travelCal::popularitize(){
 
     for(int i=0;i<cities.size();i++){
@@ -273,11 +459,40 @@ void travelCal::popularitize(){
     }
 
 };
+
+/*
+Function prototype:
+int travelCal::popularitize(city c);
+
+Function description:
+This method executes the popularity of the city as the number of adjacent cities.
+
+Example:
+
+tC->popularitize(city c);
+
+Pre-condition: Any condition of popularity of the city
+Post-condition: Method return the popularity of the city as how many cities it connects to
+*/
 int travelCal::popularitize(city c){
 
     return c.adj.size();
 
 }
+/*
+Function prototype:
+void travelCal::buildDistrict();
+
+Function description:
+This method assigns the district number to each city. If the cities can be connect through roads, the cities are in the same district.
+
+Example:
+
+tC->buildDistrict();
+
+Pre-condition: Any condition of district connecting
+Post-condition: Method assigns district numbers to cities connected by roads.
+*/
 void travelCal::buildDistrict(){
     std::queue<city*> myqueue;
     city *s;
@@ -309,6 +524,21 @@ void travelCal::buildDistrict(){
         indexV++;
     }
 }
+
+/*
+Function prototype:
+bool travelCal::noDistrict();
+
+Function description:
+This method return true-false whether a city in the map has not been assigned to a district.
+
+Example:
+
+tC->noDistrict();
+
+Pre-condition: Any condition of district connecting
+Post-condition: Method return false if all cities have been assigned to districts.
+*/
 bool travelCal::noDistrict(){
     for(int i = 0; i < cities.size(); i++){
         if(cities[i].district==-1){
@@ -317,6 +547,21 @@ bool travelCal::noDistrict(){
     }
     return false;
 }
+
+/*
+Function prototype:
+bool travelCal::inDistrict(std::string v1,std::string v2);
+
+Function description:
+This method return true-false whether two cities in the map are in the same district.
+
+Example:
+
+tC->inDistrict(Boulder,Denver);
+
+Pre-condition: Any condition of district connecting
+Post-condition: Method returns true, if that Boulder is connecting to Denver by a road.
+*/
 bool travelCal::inDistrict(std::string v1,std::string v2){
     bool found1=false;
     bool found2=false;
@@ -345,6 +590,20 @@ bool travelCal::inDistrict(std::string v1,std::string v2){
 
 }
 
+/*
+Function prototype:
+void travelCal::displayRoads();
+
+Function description:
+This method displays all possible road connections.
+
+Example:
+
+tC->displayRoads();
+
+Pre-condition: The map has some road connection
+Post-condition: Method display all possible road connections in the map.
+*/
 void travelCal::displayRoads(){
 
     //loop through all cities and adjacent cities
@@ -363,6 +622,20 @@ void travelCal::displayRoads(){
 
 }
 
+/*
+Function prototype:
+void travelCal::displayFlights();
+
+Function description:
+This method displays all possible flight connections.
+
+Example:
+
+tC->displayFlights();
+
+Pre-condition: The map has some flight connection
+Post-condition: Method display all possible flight connections in the map.
+*/
 void travelCal::displayFlights(){
 
     //loop through all cities and adjacent cities
@@ -387,7 +660,20 @@ void travelCal::displayFlights(){
     }
 
 }
+/*
+Function prototype:
+void travelCal::displayMaps();
 
+Function description:
+This method displays both road and flight connections separately.
+
+Example:
+
+tC->displayMaps();
+
+Pre-condition: The map has some flight and road connections.
+Post-condition: Method displays both road and flight connections separately.
+*/
 void travelCal::displayMaps(){
 
     std::cout<<"======ROAD MAP======"<<std::endl;
@@ -409,6 +695,20 @@ void travelCal::displayMaps(){
 
 }
 
+/*
+Function prototype:
+void travelCal::cityInReach(std::string startingCity);
+
+Function description:
+This method displays cities that a city can be connected via roads and flights.
+
+Example:
+
+tC->cityInReach(Boulder);
+
+Pre-condition: The map has some flight and road connections starting from Boulder.
+Post-condition: Method displays cities that can travel from Boulder via roads and flights.
+*/
 void travelCal::cityInReach(std::string startingCity){
   std::queue<city*> myqueue;
   city *s;
@@ -435,6 +735,20 @@ void travelCal::cityInReach(std::string startingCity){
   }
 }
 
+/*
+Function prototype:
+connection travelCal::selectLessTime(adjCity adj);
+
+Function description:
+This method returns the connecting option between a road and a flight between two cities whether which one has the least time-spending.
+
+Example:
+
+tC->selectLessTime(Denver,Seattle);
+
+Pre-condition: The map has a flight and road connection starting from Denver to Seattle.
+Post-condition: Method return the flight connection, because it takes less time to travel from Denver to Seattle by Flying.
+*/
 connection travelCal::selectLessTime(adjCity adj){
     adjCity testing = adj;
     if(testing.flight.cost!=-1 && testing.road.cost!=-1){//have flight and road, select flight
@@ -445,6 +759,21 @@ connection travelCal::selectLessTime(adjCity adj){
         return testing.flight;
     }
 }
+
+/*
+Function prototype:
+connection travelCal::selectMoreTime(adjCity adj);
+
+Function description:
+This method returns the connecting option between a road and a flight between two cities whether which one has the most time-spending.
+
+Example:
+
+tC->selectMoreTime(Denver,Seattle);
+
+Pre-condition: The map has a flight and road connection starting from Denver to Seattle.
+Post-condition: Method return the road connection, because it takes more time to travel from Denver to Seattle by Flying.
+*/
 connection travelCal::selectMoreTime(adjCity adj){
     adjCity testing = adj;
     if(testing.flight.cost!=-1 && testing.road.cost!=-1){//have flight and road, select road
@@ -456,8 +785,20 @@ connection travelCal::selectMoreTime(adjCity adj){
     }
 }
 
+/*
+Function prototype:
+void travelCal::leastCity(std::string v1,std::string v2);
 
+Function description:
+This method display the path information that the path is visiting the least number of cities, as Dijkstra's algorithm with unweight edges.
 
+Example:
+
+tC->leastCity(Denver,London);
+
+Pre-condition: The map has a flight and road connection starting from Denver to London.
+Post-condition: Method displays "2,Denver,Boston,London" == "numberOfConnections,Denver,Boston,London"
+*/
 void travelCal::leastCity(std::string v1,std::string v2){
     std::queue<city*> myqueue;
     //int s_array[vertices.size()];
@@ -528,6 +869,21 @@ void travelCal::leastCity(std::string v1,std::string v2){
         }
       }
 };
+
+/*
+Function prototype:
+void travelCal::bestTravel(std::string source,std::string destination);
+
+Function description:
+This method display the path information that the path contains the least time-spending connections.
+
+Example:
+
+tC->bestTravel(Denver,London);
+
+Pre-condition: The map has a flight and road connection starting from Denver to London.
+Post-condition: Method displays "16460 kilometers,~$1421,Denver,New York City,Paris,Barcelona,Saudi Arabia" == "distanceTravel,approx-dollarCost,Denver,New York City,Paris,Barcelona,Saudi Arabia"
+*/
 void travelCal::bestTravel(std::string source,std::string destination){
   std::stack<city*> mystack;
   int distancePath=0;
