@@ -20,10 +20,10 @@ out solutions to users.
  - Secondly, you can print the map to check the cities, roads, and flights.
  - By selecting Menu, it will calculate and implement each function.
  - There is no other dependent file; other than ROADMAP.txt and FLIGHTMAP.txt which I will provide in the repository folder.
- - link to documentation program: https://github.com/trsteve/finalproject-CSCI2270-trsteve/blob/master/travelKit-documentation.zip
+ - link to documentation program: https://github.com/trsteve/CSCI2270_FinalProject_trsteve/tree/master/travelAnalyzer
 
 3. Dependencies
- - There is no other dependent file; other than ROADMAP.txt and FLIGHTMAP.txt which I will provide in the repository folder.
+ - There is no other dependent file; other than roadMap.txt and flightMap.txt which I will provide in the repository folder.
 
 4. System Requirements
  - Since I will build a simple program using terminal, All OS-platform is worked.
@@ -37,9 +37,9 @@ out solutions to users.
 
 7. Open issues/bugs
  - bugs
-   	- 4/26/2015 1:39AM "Add new road for a new recent city: it does not display as road has been added when I printed map. It displays that I added a flight connection but no cost
+   	+ 4/26/2015 1:39AM "Add new road for a new recent city: it does not display as road has been added when I printed map. It displays that I added a flight connection but no cost
                        	;however, the program has the road cost as usual, but just not display as Road connection. I have been trying to find the bug and any issue. Debugging"
-   	- 4/26/2015 1:57AM "Fixed the lastest bug of AddRoad, actually there is no bug in the Add-Road function but the bug in the displayMap function that I have to change the condition of displaying"
+   	+ 4/26/2015 1:57AM "Fixed the lastest bug of AddRoad, actually there is no bug in the Add-Road function but the bug in the displayMap function that I have to change the condition of displaying"
    	- 4/26/2015 2.05AM "Sometimes the BESTTRAVEL-function does not work for some path. It stucks in the loop. I have been trying to find the bug and fix it. Debugging"
 	- 4/26/2015 3.35AM "Update Delete functions but when I delete a city, the adjacent-road city also get change. Debugging"
  - issues
