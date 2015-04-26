@@ -40,6 +40,7 @@ out solutions to users.
    - 4/26/2015 1:39AM "Add new road for a new recent city: it does not display as road has been added when I printed map. It displays that I added a flight connection but no cost
                        ;however, the program has the road cost as usual, but just not display as Road connection. I have been trying to find the bug and any issue. Debugging"
    - 4/26/2015 1:57AM "Fixed the lastest bug of AddRoad, actually there is no bug in the Add-Road function but the bug in the displayMap function that I have to change the condition of displaying"
+   - 4/26/2015 2.05AM "Sometimes the BESTTRAVEL-function does not work for some path. It stucks in the loop. I have been trying to find the bug and fix it. Debugging"
  - issues
 
 
