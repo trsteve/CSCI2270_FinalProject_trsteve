@@ -274,7 +274,7 @@ void travelCal::displayRoads(){
         std::cout<<cities[i].district<<":"<<cities[i].name<<"-->";
         for(int j = 0; j < cities[i].adj.size(); j++){
             //cout<<cities[i].adj[j].v->name<<"*"<<cities[i].adj[j].weight<<"*";
-            if(j!=cities[i].adj.size()-1){
+            if(j<cities[i].adj.size()){
                 if(cities[i].adj[j].road.cost!=-1){
                     std::cout<<cities[i].adj[j].c->name<<"**"<<cities[i].adj[j].road.cost<<"**";
                 }
@@ -292,11 +292,16 @@ void travelCal::displayFlights(){
         std::cout<<cities[i].district<<":"<<cities[i].name<<"-->";
         for(int j = 0; j < cities[i].adj.size(); j++){
             //cout<<cities[i].adj[j].v->name<<"*"<<cities[i].adj[j].weight<<"*";
-            std::cout<<cities[i].adj[j].c->name;
+            /*std::cout<<cities[i].adj[j].c->name;
             if(j!=cities[i].adj.size()){
                 std::cout<<"**";
                 if(cities[i].adj[j].flight.cost!=-1){
                     std::cout<<cities[i].adj[j].flight.cost<<"**";
+                }
+            }*/
+            if(j<cities[i].adj.size()){
+                if(cities[i].adj[j].flight.cost!=-1){
+                    std::cout<<cities[i].adj[j].c->name<<"**"<<cities[i].adj[j].flight.cost<<"**";
                 }
             }
         }
