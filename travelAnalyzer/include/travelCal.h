@@ -49,6 +49,9 @@ class travelCal
         void addRoad(std::string v1, std::string v2, int cost);
         void addFlight(std::string v1, std::string v2, int cost);
         void addCity(std::string name);
+        void deleteCity(std::string name);
+        void deleteRoad(std::string v1, std::string v2);
+        void deleteFlight(std::string v1, std::string v2);
         void setMapSize(int ss);
         void displayRoads();
         void displayFlights();

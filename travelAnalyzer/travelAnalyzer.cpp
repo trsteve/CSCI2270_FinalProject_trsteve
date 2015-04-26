@@ -15,6 +15,8 @@ struct adjCity;
 void displayMenu();
 void displayAdd();
 void menuAdd(travelCal * tC);
+void displayDel();
+void menuDel(travelCal * tC);
 //int getFileSize(char * fileName);
 void readRoad(travelCal * tC, char * fileRoad);
 void readFlight(travelCal * tC, char * fileFlight);
@@ -100,8 +102,11 @@ int main(int argc, char*argv[])
                     cout<<"One or more cities doesn't exist"<<endl;
                 }
                 break;
-            // quit
             case 7:
+                menuDel(tC);
+                break;
+            // quit
+            case 8:
                 cout << "Goodbye!" << endl;
                 quit = true;
                 break;
@@ -127,7 +132,8 @@ void displayMenu()
     cout << "4. Find cities in reach" << endl;
     cout << "5. Find least city" << endl;
     cout << "6. Find best path" << endl;
-    cout << "7. Quit" << endl;
+    cout << "7. Delete ..." << endl;
+    cout << "8. Quit" << endl;
     return;
 }
 
@@ -199,6 +205,83 @@ void menuAdd(travelCal *tC){
             case 4:
                 //cout << "Goodbye!" << endl;
                 quit2 = true;
+                break;
+            // invalid input
+            default:
+                cout << "Invalid Input" << endl;
+                cin.clear();
+                cin.ignore(10000,'\n');
+                break;
+        }
+    }
+    return;
+}
+
+void displayDel(){
+
+    cout << "======Delete Menu=====" << endl;
+    cout << "1. Delete City" << endl;
+    cout << "2. Delete Road" << endl;
+    cout << "3. Delete Flight" << endl;
+    cout << "4. Main Menu" << endl;
+    return;
+}
+
+void menuDel(travelCal *tC){
+
+    int inputDel;
+    bool quit3 = false;
+    while(quit3 != true)
+    {
+        displayDel();
+        cin >> inputDel;
+
+        //clear out cin
+        cin.clear();
+        cin.ignore(10000,'\n');
+        string cityName;
+        string stCity;
+        string edCity;
+        switch (inputDel)
+        {
+            // del city
+            case 1:
+                cout<<"Enter a city name:"<<endl;
+                getline(cin,cityName,'\n');
+                if(tC->findCity(cityName)){
+                    tC->deleteCity(cityName);
+                } else {
+                    cout<<cityName<<" does not existed"<<endl;
+                }
+                break;
+            //del road
+            case 2:
+                cout<<"Enter a starting city name:"<<endl;
+                getline(cin,stCity,'\n');
+                cout<<"Enter a destination city name:"<<endl;
+                getline(cin,edCity,'\n');
+                if(tC->findCity(stCity) && tC->findCity(edCity)){//if only found both
+                    tC->deleteRoad(stCity,edCity);
+                } else{
+                    cout<<"One or more cities doesn't exist"<<endl;
+                }
+                break;
+            //del flight
+            case 3:
+                cout<<"Enter a starting city name:"<<endl;
+                getline(cin,stCity,'\n');
+                cout<<"Enter a destination city name:"<<endl;
+                getline(cin,edCity,'\n');
+                if(tC->findCity(stCity) && tC->findCity(edCity)){//if only found both
+                    tC->deleteFlight(stCity,edCity);
+                } else{
+                    cout<<"One or more cities doesn't exist"<<endl;
+                }
+                break;
+
+            case 4:
+                //cout << "Goodbye!" << endl;
+                quit3 = true;
                 break;
             // invalid input
             default:

@@ -79,7 +79,7 @@ void travelCal::addRoad(std::string v1, std::string v2, int cost){
                     av2.flight.cost=-1;
                     av2.flight.time=-1;
                     cities[j].adj.push_back(av2);
-                    std::cout<<av2.c->name<<"--"<<av.road.cost<<"--"<<av.c->name<<std::endl;
+                    //std::cout<<av2.c->name<<"--"<<av.road.cost<<"--"<<av.c->name<<std::endl;
                     return;
 
                 } else if(cities[j].name == v2 && i != j && adjFind(v1,v2)==true){
@@ -97,7 +97,7 @@ void travelCal::addRoad(std::string v1, std::string v2, int cost){
                             break;
                         }
                     }
-                    std::cout<<v1<<"--"<<cost<<"--"<<v2<<std::endl;
+                    //std::cout<<v1<<"--"<<cost<<"--"<<v2<<std::endl;
                 }
             }
         }
@@ -125,7 +125,7 @@ void travelCal::addFlight(std::string v1, std::string v2, int cost){
                     av2.road.cost=-1;
                     av2.road.time=-1;
                     cities[j].adj.push_back(av2);
-                    std::cout<<av2.c->name<<"--"<<av.flight.cost<<"--"<<av.c->name<<std::endl;
+                    //std::cout<<av2.c->name<<"--"<<av.flight.cost<<"--"<<av.c->name<<std::endl;
                     return;
 
                 } else if(cities[j].name == v2 && i != j && adjFind(v1,v2)==true){
@@ -143,7 +143,7 @@ void travelCal::addFlight(std::string v1, std::string v2, int cost){
                             break;
                         }
                     }
-                    std::cout<<v1<<"--"<<cost<<"--"<<v2<<std::endl;
+                    //std::cout<<v1<<"--"<<cost<<"--"<<v2<<std::endl;
                 }
             }
         }
@@ -171,6 +171,82 @@ void travelCal::addCity(std::string n){
 
 
 }
+
+void travelCal::deleteCity(std::string name){
+    bool found = false;
+    city *deleting;
+    int position;
+    for(int i = 0; i < cities.size(); i++){
+        if(cities[i].name == name){
+            found = true;
+            deleting = &cities[i];
+            position = i;
+            break;
+        }
+    }
+    for(int j=0; j<deleting->adj.size();j++){
+        //deleting->adj[j].c = NULL;
+        deleting->adj[j].road.cost = -1;
+        deleting->adj[j].road.time = -1;
+        deleting->adj[j].flight.cost = -1;
+        deleting->adj[j].flight.time = -1;
+        for(int k=0; k<deleting->adj[j].c->adj.size();k++){
+            if(deleting->adj[j].c->adj[k].c->name == name){
+                deleting->adj[j].c->adj[k].road.cost = -1;
+                deleting->adj[j].c->adj[k].road.time = -1;
+                deleting->adj[j].c->adj[k].flight.cost = -1;
+                deleting->adj[j].c->adj[k].flight.time = -1;
+            }
+
+        }
+    }
+    cities.erase(cities.begin()+position);
+}
+
+void travelCal::deleteRoad(std::string v1,std::string v2){
+    city *d1;
+    for(int i = 0; i < cities.size(); i++){
+        if(cities[i].name == v1){
+            d1 = &cities[i];
+        }
+    }
+    for(int j=0; j<d1->adj.size();j++){
+        if(d1->adj[j].c->name==v2){
+            d1->adj[j].road.cost = -1;
+            d1->adj[j].road.time = -1;
+            for(int k=0; k<d1->adj[j].c->adj.size();k++){
+                if(d1->adj[j].c->adj[k].c->name==v1){
+                    d1->adj[j].c->adj[k].road.cost = -1;
+                    d1->adj[j].c->adj[k].road.time = -1;
+                }
+            }
+        }
+    }
+}
+
+void travelCal::deleteFlight(std::string v1,std::string v2){
+    city *d1;
+    for(int i = 0; i < cities.size(); i++){
+        if(cities[i].name == v1){
+            d1 = &cities[i];
+        }
+    }
+    for(int j=0; j<d1->adj.size();j++){
+        if(d1->adj[j].c->name==v2){
+            d1->adj[j].flight.cost = -1;
+            d1->adj[j].flight.time = -1;
+            for(int k=0; k<d1->adj[j].c->adj.size();k++){
+                if(d1->adj[j].c->adj[k].c->name==v1){
+                    d1->adj[j].c->adj[k].flight.cost = -1;
+                    d1->adj[j].c->adj[k].flight.time = -1;
+                }
+            }
+        }
+    }
+}
+
+
+
 bool travelCal::findCity(std::string v){
     bool found = false;
     for(int i = 0; i < cities.size(); i++){
@@ -359,7 +435,7 @@ void travelCal::cityInReach(std::string startingCity){
 
 connection travelCal::selectLessTime(adjCity adj){
     adjCity testing = adj;
-    if(testing.flight.cost>0 && testing.road.cost >0){//have flight and road, select flight
+    if(testing.flight.cost!=-1 && testing.road.cost!=-1){//have flight and road, select flight
         return testing.flight;
     } else if(testing.flight.cost==-1){//no flight connection always select road
         return testing.road;
@@ -369,7 +445,7 @@ connection travelCal::selectLessTime(adjCity adj){
 }
 connection travelCal::selectMoreTime(adjCity adj){
     adjCity testing = adj;
-    if(testing.flight.cost>0 && testing.road.cost >0){//have flight and road, select flight
+    if(testing.flight.cost!=-1 && testing.road.cost!=-1){//have flight and road, select road
         return testing.road;
     } else if(testing.flight.cost==-1){//no flight connection always select road
         return testing.road;
@@ -377,6 +453,8 @@ connection travelCal::selectMoreTime(adjCity adj){
         return testing.flight;
     }
 }
+
+
 
 void travelCal::leastCity(std::string v1,std::string v2){
     std::queue<city*> myqueue;
@@ -471,7 +549,6 @@ void travelCal::bestTravel(std::string source,std::string destination){
   u=s;
   connection distSelect = selectLessTime(u->adj[0]);
   storeDist= distSelect.cost;
-  std::cout<<"dd:"<<storeDist<<":dd"<<std::endl;
   while(u->name!=e->name){
     int i = cities.size()-1;
     int refMaxDist=0;
@@ -490,7 +567,6 @@ void travelCal::bestTravel(std::string source,std::string destination){
     }
 
     storeDist=u->distance+refMinDist;
-
     while(i>-1){
       if(cities[i].visited==true){
         checkSolved = &cities[i];
@@ -505,6 +581,7 @@ void travelCal::bestTravel(std::string source,std::string destination){
                   distTemp = distTemp+checkSolved->distance;
                   tempVertex->distance = distTemp;
                   storeDist = distTemp;
+                  //std::cout<<"ss:"<<storeDist<<":ss"<<std::endl;
             }
           }
             j--;
@@ -522,7 +599,9 @@ void travelCal::bestTravel(std::string source,std::string destination){
     u = u->previous;
     mystack.push(u);
   }
-  std::cout<<distancePath;
+  std::cout<<distancePath<<" kilometers,";
+  int dollar = distancePath/12+(s->popularity)/(e->popularity)*50;
+  std::cout<<"~$"<<dollar;
   while(!mystack.empty()){
     std::cout<<","<<mystack.top()->name;
     mystack.pop();
