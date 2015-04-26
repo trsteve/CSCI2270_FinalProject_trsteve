@@ -9,22 +9,32 @@ class travelkit
         virtual ~travelkit();
         void projectSummary();
         void howtorun();
+
+        void adjFind();
+        void adjRoad();
+        void adjFlight();
+
         void addCity();
         void addRoad();
         void addFlight();
-        void bfTraversal();
-        void dptTraversal();
-        void shortestPath();
+
+        void deleteCity();
+        void deleteRoad();
+        void deleteFlight();
+
+        void displayRoads();
+        void displayFlights();
+        void displayMaps();
+
+        void findCity();
+
+        void buildDistrict();
+
+        void cityInReach();
+
         void leastCity();
-        void travelAroundWorld();
-        void roadTrip();
-        void flightTrip();
-        void timeTrip();
-        void popularity();
-        void exchangingCurrency();
-        void printRoadMap();
-        void printFlightMap();
-        void printMap();
+        void bestTravel();
+        void popularitize();
     protected:
     private:
 };

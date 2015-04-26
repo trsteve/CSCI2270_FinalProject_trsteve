@@ -45,128 +45,144 @@ void travelkit::howtorun()
     std::cout<<" - There is no other dependent file; other than ROADMAP.txt and FLIGHTMAP.txt which I will provide in the repository folder.\n"<<std::endl;
     return;
 }
+void travelkit::adjFind()
+{
+    std::cout<<"\n==Function: bool adjFind(string city1, string city2)"<<std::endl;
+    std::cout<<" - This function will prompt the user to two parameters to find any existing path between two cities"<<std::endl;
+    std::cout<<" - Enter 1.(NAME of CITY) and its 2.(NAME of CITY)"<<std::endl;
+    std::cout<<" - This function return true-false bool."<<std::endl;
+    std::cout<<std::endl;
+}
+void travelkit::adjRoad()
+{
+    std::cout<<"\n==Function: bool adjRoad(string city1, string city2)"<<std::endl;
+    std::cout<<" - This function will prompt the user to two parameters to build a road between two cities"<<std::endl;
+    std::cout<<" - Enter 1.(NAME of 1st CITY) and its 2.(NAME of 2st CITY)"<<std::endl;
+    std::cout<<" - This function return true-false bool."<<std::endl;
+    std::cout<<std::endl;
+}
+void travelkit::adjFlight()
+{
+    std::cout<<"\n==Function: bool adjFlight(string city1, string city2)"<<std::endl;
+    std::cout<<" - This function will prompt the user to two parameters to create a flight between two cities"<<std::endl;
+    std::cout<<" - Enter 1.(NAME of 1st CITY) and 2.(NAME of 2st CITY)"<<std::endl;
+    std::cout<<" - This function return true-false bool."<<std::endl;
+    std::cout<<std::endl;
+}
 void travelkit::addCity()
 {
-    std::cout<<"\n==Function: void addCity(string nameCity, int popularity)"<<std::endl;
-    std::cout<<" - This function will prompt the user to two parameters to store a city"<<std::endl;
-    std::cout<<" - Enter 1.(NAME of CITY) and its 2.(popularity)"<<std::endl;
-    std::cout<<" - This function does not return anything, but add the city information of the map"<<std::endl;
+    std::cout<<"\n==Function: void addCity(string nameCity)"<<std::endl;
+    std::cout<<" - This function will prompt the user to a parameter to add a city"<<std::endl;
+    std::cout<<" - Enter 1.(NAME of CITY)"<<std::endl;
+    std::cout<<" - This function does not return anything, but add the city to the map"<<std::endl;
     std::cout<<std::endl;
 }
 void travelkit::addRoad()
 {
-    std::cout<<"\n==Function: void addRoad(string city1, string city2)"<<std::endl;
-    std::cout<<" - This function will prompt the user to two parameters to build a road between two cities"<<std::endl;
-    std::cout<<" - Enter 1.(NAME of 1st CITY) and its 2.(NAME of 2st CITY)"<<std::endl;
+    std::cout<<"\n==Function: void addRoad(string city1, string city2, int weight)"<<std::endl;
+    std::cout<<" - This function will prompt the user to three parameters to build a road between two cities"<<std::endl;
+    std::cout<<" - Enter 1.(NAME of 1st CITY) and its 2.(NAME of 2st CITY) and its 3.(Driving Length)"<<std::endl;
     std::cout<<" - This function does not return anything, but update the road information of the map"<<std::endl;
     std::cout<<std::endl;
 }
-void travelkit::travelkit::addFlight()
+void travelkit::addFlight()
 {
-    std::cout<<"\n==Function: void addFlight(string city1, string city2)"<<std::endl;
-    std::cout<<" - This function will prompt the user to two parameters to create a flight between two cities"<<std::endl;
-    std::cout<<" - Enter 1.(NAME of 1st CITY) and 2.(NAME of 2st CITY)"<<std::endl;
+    std::cout<<"\n==Function: void addFlight(string city1, string city2, int weight)"<<std::endl;
+    std::cout<<" - This function will prompt the user to three parameters to create a flight between two cities"<<std::endl;
+    std::cout<<" - Enter 1.(NAME of 1st CITY) and 2.(NAME of 2st CITY) and its 3.(Flying Distance)"<<std::endl;
     std::cout<<" - This function does not return anything, but update the flight information of the map"<<std::endl;
     std::cout<<std::endl;
 }
-void travelkit::bfTraversal()
+void travelkit::deleteCity()
 {
-    std::cout<<"\n==Function: void searchReach(string city1)"<<std::endl;
+    std::cout<<"\n==Function: void deleteCity(string nameCity)"<<std::endl;
+    std::cout<<" - This function will prompt the user to a parameter to add a city"<<std::endl;
+    std::cout<<" - Enter 1.(NAME of CITY)"<<std::endl;
+    std::cout<<" - This function does not return anything, but delete the city from the map"<<std::endl;
+    std::cout<<std::endl;
+}
+void travelkit::deleteRoad()
+{
+    std::cout<<"\n==Function: void deleteRoad(string city1, string city2)"<<std::endl;
+    std::cout<<" - This function will prompt the user to two parameters to delete the road between two cities"<<std::endl;
+    std::cout<<" - Enter 1.(NAME of 1st CITY) and its 2.(NAME of 2st CITY)"<<std::endl;
+    std::cout<<" - This function does not return anything, but delete the road information from the map"<<std::endl;
+    std::cout<<std::endl;
+}
+void travelkit::deleteFlight()
+{
+    std::cout<<"\n==Function: void deleteFlight(string city1, string city2)"<<std::endl;
+    std::cout<<" - This function will prompt the user to two parameters to delete the flight between two cities"<<std::endl;
+    std::cout<<" - Enter 1.(NAME of 1st CITY) and 2.(NAME of 2st CITY)"<<std::endl;
+    std::cout<<" - This function does not return anything, but delete the flight information from the map"<<std::endl;
+    std::cout<<std::endl;
+}
+void travelkit::findCity()
+{
+    std::cout<<"\n==Function: bool findCity(string city)"<<std::endl;
+    std::cout<<" - This function will prompt the user to a parameter to find the city"<<std::endl;
+    std::cout<<" - Enter 1.(NAME of CITY)"<<std::endl;
+    std::cout<<" - This function returns true-false whether the city is found or not."<<std::endl;
+    std::cout<<std::endl;
+}
+void travelkit::buildDistrict()
+{
+    std::cout<<"\n==Function: void buildDistrict()"<<std::endl;
+    std::cout<<" - This function does not return anything, but update the district information of the map."<<std::endl;
+    std::cout<<" - Each district is determined by having roads connected in breadth-first search."<<std::endl;
+    std::cout<<std::endl;
+}
+void travelkit::cityInReach()
+{
+    std::cout<<"\n==Function: void cityInReach(string city1)"<<std::endl;
     std::cout<<" - This function will prompt the user to one parameter to find all possible reached cities"<<std::endl;
     std::cout<<" - Enter 1.(NAME of 1st CITY)"<<std::endl;
     std::cout<<" - This function does not return anything, but print out all possible reached cities"<<std::endl;
     std::cout<<std::endl;
 }
-void travelkit::dptTraversal()
+void travelkit::bestTravel()
 {
-    std::cout<<"\n==Function: void searchDestination(string city1, string city2)"<<std::endl;
-    std::cout<<" - This function will prompt the user to two parameters to find a possible path do exist"<<std::endl;
+    std::cout<<"\n==Function: void bestTravel(string city1, string city2)"<<std::endl;
+    std::cout<<" - This function will prompt the user to two parameters to find the best-time-consuming path"<<std::endl;
     std::cout<<" - Enter 1.(NAME of starting CITY) and 2.(NAME of destination CITY)"<<std::endl;
-    std::cout<<" - This function does not return anything, but print out a possible reached path"<<std::endl;
-    std::cout<<std::endl;
-}
-void travelkit::shortestPath()
-{
-    std::cout<<"\n==Function: void searchShortestPath(string city1, string city2)"<<std::endl;
-    std::cout<<" - This function will prompt the user to two parameters to find the shortest path"<<std::endl;
-    std::cout<<" - Enter 1.(NAME of starting CITY) and 2.(NAME of destination CITY)"<<std::endl;
-    std::cout<<" - This function does not return anything, but print out the shortest path."<<std::endl;
+    std::cout<<" - This function does not return anything, but print out the best-time path."<<std::endl;
     std::cout<<std::endl;
 }
 void travelkit::leastCity()
 {
-    std::cout<<"\n==Function: void searchLeastVisit(string city1, string city2)"<<std::endl;
+    std::cout<<"\n==Function: void leastCity(string city1, string city2)"<<std::endl;
     std::cout<<" - This function will prompt the user to two parameters to find the least visiting-cities path"<<std::endl;
     std::cout<<" - Enter 1.(NAME of starting CITY) and 2.(NAME of destination CITY)"<<std::endl;
     std::cout<<" - This function does not return anything, but print out the least visiting-cities path."<<std::endl;
     std::cout<<std::endl;
 }
-void travelkit::travelAroundWorld()
+void travelkit::popularitize()
 {
-    std::cout<<"\n==Function: void travelAroundWorld(string startingCity)"<<std::endl;
-    std::cout<<" - This function will prompt the user to one parameter to find the least-cost-travel plan"<<std::endl;
-    std::cout<<" - Enter 1.(NAME of starting CITY)"<<std::endl;
-    std::cout<<" - This function does not return anything, but print out the least-cost-travel plan"<<std::endl;
+    std::cout<<"\n==Function: int popularitize(string city1)"<<std::endl;
+    std::cout<<" - This function will prompt the user to a parameter to find the popularity of the city"<<std::endl;
+    std::cout<<"the popular degrees that will lastly be considered in the cost of traveling."<<std::endl;
+    std::cout<<" - The popular degrees is computed by how many adjacent connections of the city."<<std::endl;
+    std::cout<<" - Enter 1.(NAME of 1st CITY)"<<std::endl;
+    std::cout<<" - This function returns the popularity of entering the destination from the starting city."<<std::endl;
     std::cout<<std::endl;
 }
-void travelkit::roadTrip()
+void travelkit::displayRoads()
 {
-    std::cout<<"\n==Function: int roadTripCost(string city1, string city2)"<<std::endl;
-    std::cout<<" - This function will prompt the user to two parameter to find the cost of taking a road between any two cities"<<std::endl;
-    std::cout<<" - Enter 1.(NAME of 1st CITY) and 2.(NAME of 2nd CITY)"<<std::endl;
-    std::cout<<" - This function returns the cost of travel from taking the road"<<std::endl;
-    std::cout<<std::endl;
-}
-void travelkit::flightTrip()
-{
-    std::cout<<"\n==Function: int flightTripCost(string city1, string city2)"<<std::endl;
-    std::cout<<" - This function will prompt the user to two parameter to find the cost of taking a flight between any two cities"<<std::endl;
-    std::cout<<" - Enter 1.(NAME of 1st CITY) and 2.(NAME of 2nd CITY)"<<std::endl;
-    std::cout<<" - This function returns the cost of travel from taking the flight"<<std::endl;
-    std::cout<<std::endl;
-}
-void travelkit::timeTrip()
-{
-    std::cout<<"\n==Function: int timeTripCost(string city1, string city2)"<<std::endl;
-    std::cout<<" - This function will prompt the user to two parameter to find the time-cost of taking a flight between any two cities"<<std::endl;
-    std::cout<<" - Enter 1.(NAME of 1st CITY) and 2.(NAME of 2nd CITY)"<<std::endl;
-    std::cout<<" - This function returns the time-cost of travel"<<std::endl;
-    std::cout<<std::endl;
-}
-void travelkit::popularity()
-{
-    std::cout<<"\n==Function: int popularity(string city1, string city2)"<<std::endl;
-    std::cout<<" - This function will prompt the user to two parameter to find the difference between"<<std::endl;
-    std::cout<<"the popular degrees that will lastly be considered in the cost of traveling"<<std::endl;
-    std::cout<<" - Enter 1.(NAME of 1st CITY) and 2.(NAME of 2nd CITY)"<<std::endl;
-    std::cout<<" - This function returns the cost of entering the destination from the starting city."<<std::endl;
-    std::cout<<std::endl;
-}
-void travelkit::exchangingCurrency()
-{
-    std::cout<<"\n==Function: int exchangingCurrency(string baseCurrency, string alterCurrency)"<<std::endl;
-    std::cout<<" - This function will prompt the user to two parameter to calculate new price due to the second currency"<<std::endl;
-    std::cout<<" - Enter 1.(old currency) and 2.(new currency)"<<std::endl;
-    std::cout<<" - This function returns the new price."<<std::endl;
-    std::cout<<std::endl;
-}
-void travelkit::printRoadMap()
-{
-    std::cout<<"\n==Function: void printRoadMap()"<<std::endl;
+    std::cout<<"\n==Function: void displayRoads()"<<std::endl;
     std::cout<<" - This function will print all available roads in the map"<<std::endl;
     std::cout<<" - No parameter needed"<<std::endl;
     std::cout<<std::endl;
 }
-void travelkit::printFlightMap()
+void travelkit::displayFlights()
 {
-    std::cout<<"\n==Function: void printFlightMap()"<<std::endl;
+    std::cout<<"\n==Function: void displayFlights()"<<std::endl;
     std::cout<<" - This function will print all available flights in the map"<<std::endl;
     std::cout<<" - No parameter needed"<<std::endl;
     std::cout<<std::endl;
 }
-void travelkit::printMap()
+void travelkit::displayMaps()
 {
-    std::cout<<"\n==Function: void printMap()"<<std::endl;
+    std::cout<<"\n==Function: void displayMaps()"<<std::endl;
     std::cout<<" - This function will print all available connections in the map"<<std::endl;
     std::cout<<" - No parameter needed"<<std::endl;
     std::cout<<std::endl;

@@ -65,30 +65,32 @@ void displayMenu()
     cout << "======Main Menu======" << endl;
     cout << "1. Project Summary" << endl;
     cout << "2. How to Run" << endl;
-    cout << "3. Function" << endl;
+    cout << "3. Functions" << endl;
     cout << "4. Quit" << endl;
     return;
 }
 
 void displayFunction(){
     cout << "======Function======" << endl;
-    cout << "1. addCity" << endl;
-    cout << "2. addRoad" << endl;
-    cout << "3. addFlight" << endl;
-    cout << "4. searchReach" << endl;
-    cout << "5. searchDepth" << endl;
-    cout << "6. searchShortestPath" << endl;
-    cout << "7. searchLeastCity" << endl;
-    cout << "8. travelAroundWorld" << endl;
-    cout << "9. roadTripCost" << endl;
-    cout << "10. flightTripCost" << endl;
-    cout << "11. timeTripCost" << endl;
-    cout << "12. popularity" << endl;
-    cout << "13. exchangingCurrency" << endl;
-    cout << "14. printRoadMap" << endl;
-    cout << "15. printFlightMap" << endl;
-    cout << "16. printMap" << endl;
-    cout << "17. return" << endl;
+    cout << "1. adjFind" << endl;
+    cout << "2. adjRoad" << endl;
+    cout << "3. adjFlight" << endl;
+    cout << "4. addRoad" << endl;
+    cout << "5. addFlight" << endl;
+    cout << "6. addCity" << endl;
+    cout << "7. deleteCity" << endl;
+    cout << "8. deleteRoad" << endl;
+    cout << "9. deleteFlight" << endl;
+    cout << "10. displayRoads" << endl;
+    cout << "11. displayFlights" << endl;
+    cout << "12. displayMaps" << endl;
+    cout << "13. findCity" << endl;
+    cout << "14. buildDistrict" << endl;
+    cout << "15. cityInReach" << endl;
+    cout << "16. leastCity" << endl;
+    cout << "17. bestTravel" << endl;
+    cout << "18. popularitize" << endl;
+    cout << "19. return" << endl;
     return;
 }
 
@@ -106,72 +108,80 @@ void functionMenu(travelkit *kit){
                 cin.ignore(10000,'\n');
                 switch (input2)
                 {
-                    // addCity
+                    //adjacent city find
                     case 1:
+                        kit->adjFind();
+                        break;
+                    // adjacent road find
+                    case 2:
+                        kit->adjRoad();
+                        break;
+                    // adjacent flight find
+                    case 3:
+                        kit->adjFlight();
+                        break;
+                    // addCity
+                    case 4:
                         kit->addCity();
                         break;
                     // addRoad
-                    case 2:
+                    case 5:
                         kit->addRoad();
                         break;
                     // addFlight
-                    case 3:
+                    case 6:
                         kit->addFlight();
                         break;
-                    // searchReach
-                    case 4:
-                        kit->bfTraversal();
-                        break;
-                    //searchDepth
-                    case 5:
-                        kit->dptTraversal();
-                        break;
-                    //searchShortestPath
-                    case 6:
-                        kit->shortestPath();
-                        break;
-                    //searchLeastCity
+                    // deleteCity
                     case 7:
+                        kit->deleteCity();
+                        break;
+                    // deleteRoad
+                    case 8:
+                        kit->deleteRoad();
+                        break;
+                    // deleteFlight
+                    case 9:
+                        kit->deleteFlight();
+                        break;
+                     // displayRoads
+                    case 10:
+                        kit->displayRoads();
+                        break;
+                    // displayFlights
+                    case 11:
+                        kit->displayFlights();
+                        break;
+                    // displayMaps
+                    case 12:
+                        kit->displayMaps();
+                        break;
+                     // find a City
+                    case 13:
+                        kit->findCity();
+                        break;
+                    // build Districts
+                    case 14:
+                        kit->buildDistrict();
+                        break;
+                    // cityInReach
+                    case 15:
+                        kit->cityInReach();
+                        break;
+                     // find unweight path that means a path visiting the least number of Cities
+                    case 16:
                         kit->leastCity();
                         break;
-                    //travelAroundWorld
-                    case 8:
-                        kit->travelAroundWorld();
+                    // find the best Travel path that have least time-cost
+                    case 17:
+                        kit->bestTravel();
                         break;
-                    // roadTripCost
-                    case 9:
-                        kit->roadTrip();
-                        break;
-                    //flightTripCost
-                    case 10:
-                        kit->flightTrip();
-                        break;
-                    //timeTripCost
-                    case 11:
-                        kit->timeTrip();
-                        break;
-                    // popularity
-                    case 12:
-                        kit->popularity();
-                        break;
-                    //exchangingCurrency
-                    case 13:
-                        kit->exchangingCurrency();
-                        break;
-                    //printRoadMap
-                    case 14:
-                        kit->printRoadMap();
-                        break;
-                    // printFlightMap
-                    case 15:
-                        kit->printFlightMap();
-                        break;
-                    //printMap
-                    case 16:
-                        kit->printMap();
+                    // popularitize cities that makes the cost of visiting some city different
+                    case 18:
+                        kit->popularitize();
                         break;
                     //return MainMenu
-                    case 17:
+                    case 19:
                         quit2 = true;
                         break;
                     default:
