@@ -4,6 +4,7 @@
 travelCal::travelCal()
 {
     //ctor
+
 }
 
 travelCal::~travelCal()
@@ -300,7 +301,9 @@ void travelCal::deleteCity(std::string name){
 
         }
     }
-    deleting = NULL;
+    deleting->name ="\0";
+    deleting->district =-1;
+
     //cities.erase(cities.begin()+position);
     numberCities--;
 }
@@ -608,16 +611,18 @@ void travelCal::displayRoads(){
 
     //loop through all cities and adjacent cities
     for(int i = 0; i < cities.size(); i++){
-        std::cout<<cities[i].district<<":"<<cities[i].name<<"-->";
-        for(int j = 0; j < cities[i].adj.size(); j++){
-            //cout<<cities[i].adj[j].v->name<<"*"<<cities[i].adj[j].weight<<"*";
-            if(j<cities[i].adj.size()){
-                if(cities[i].adj[j].road.cost!=-1){
-                    std::cout<<cities[i].adj[j].c->name<<"**"<<cities[i].adj[j].road.cost<<"**";
+            if(cities[i].name!="\0" && cities[i].district!=-1){
+            std::cout<<cities[i].district<<":"<<cities[i].name<<"-->";
+            for(int j = 0; j < cities[i].adj.size(); j++){
+                //cout<<cities[i].adj[j].v->name<<"*"<<cities[i].adj[j].weight<<"*";
+                if(j<cities[i].adj.size()){
+                    if(cities[i].adj[j].road.cost!=-1){
+                        std::cout<<cities[i].adj[j].c->name<<"**"<<cities[i].adj[j].road.cost<<"**";
+                    }
                 }
             }
+            std::cout<<std::endl;
         }
-        std::cout<<std::endl;
     }
 
 }
@@ -640,23 +645,25 @@ void travelCal::displayFlights(){
 
     //loop through all cities and adjacent cities
     for(int i = 0; i < cities.size(); i++){
-        std::cout<<cities[i].district<<":"<<cities[i].name<<"-->";
-        for(int j = 0; j < cities[i].adj.size(); j++){
-            //cout<<cities[i].adj[j].v->name<<"*"<<cities[i].adj[j].weight<<"*";
-            /*std::cout<<cities[i].adj[j].c->name;
-            if(j!=cities[i].adj.size()){
-                std::cout<<"**";
-                if(cities[i].adj[j].flight.cost!=-1){
-                    std::cout<<cities[i].adj[j].flight.cost<<"**";
-                }
-            }*/
-            if(j<cities[i].adj.size()){
-                if(cities[i].adj[j].flight.cost!=-1){
-                    std::cout<<cities[i].adj[j].c->name<<"**"<<cities[i].adj[j].flight.cost<<"**";
+         if(cities[i].name!="\0" && cities[i].district!=-1){
+            std::cout<<cities[i].district<<":"<<cities[i].name<<"-->";
+            for(int j = 0; j < cities[i].adj.size(); j++){
+                //cout<<cities[i].adj[j].v->name<<"*"<<cities[i].adj[j].weight<<"*";
+                /*std::cout<<cities[i].adj[j].c->name;
+                if(j!=cities[i].adj.size()){
+                    std::cout<<"**";
+                    if(cities[i].adj[j].flight.cost!=-1){
+                        std::cout<<cities[i].adj[j].flight.cost<<"**";
+                    }
+                }*/
+                if(j<cities[i].adj.size()){
+                    if(cities[i].adj[j].flight.cost!=-1){
+                        std::cout<<cities[i].adj[j].c->name<<"**"<<cities[i].adj[j].flight.cost<<"**";
+                    }
                 }
             }
+            std::cout<<std::endl;
         }
-        std::cout<<std::endl;
     }
 
 }
