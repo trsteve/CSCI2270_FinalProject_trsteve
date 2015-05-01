@@ -17,8 +17,11 @@ out solutions to users.
 2. How to Run
  - "travelAnalyzer" is the main driver program file
  - "travelKit" is the documentation help file
+ - Access travelAnalyzer/bin/Debug, and you will found travelAnalyzer compiled file.
+ - Run "travelAnalyzer" by using terminal
+ - type "./travelAnalyzer roadMap.txt flightMap.txt" (in order to run the program)
  - The program will run by reading a "roadMap.txt" file, and "flightMap.txt" file in command line argument.
-*However, you will need these file to completely run the program.
+
  - You can print the map to check the cities, roads, and flights.
  - By selecting Menu, it will calculate and implement each function.
  - There is no other dependent file; other than ROADMAP.txt and FLIGHTMAP.txt which I will provide in the repository folder.
@@ -40,15 +43,17 @@ out solutions to users.
 7. Open issues/bugs
  - bugs
    	+ 4/26/2015 1:39AM "Add new road for a new recent city: it does not display as road has been added when I printed map. It displays that I added a flight connection but no cost
-                       	;however, the program has the road cost as usual, but just not display as Road connection. I have been trying to find the bug and any issue. Debugging"
+                       	;however, the program has the road cost as usual, but just not display as Road connection. I have been trying to find the bug and any issue. Debugging*fixed"
    	+ 4/26/2015 1:57AM "Fixed the lastest bug of AddRoad, actually there is no bug in the Add-Road function but the bug in the displayMap function that I have to change the condition of displaying"
    	- 4/26/2015 2.05AM "Sometimes the BESTTRAVEL-function does not work for some path. It stucks in the loop. I have been trying to find the bug and fix it. Debugging"
-	- 4/26/2015 3.35AM "Update Delete functions but when I delete a city, the adjacent-road city also get change. Debugging"
+	- 4/26/2015 3.35AM "Update Delete functions but when I delete a city, the adjacent-road city also get change. Debugging*fixed"
+	+ 4/30/2015 10.24PM "Fix the delete city"
  - issues
-   	- 4/26/2015 3.35AM "Working on Delete city from the map"
+   	+ 4/26/2015 3.35AM "Working on Delete city from the map" : fixed
 	- 4/26/2015 4.08AM "vector.erase() delete and shift the rest of vector one step, this makes my whole connections that contain city after the delete one mix up. -- Need some help or suggestion.
  			-- not sure of making the adjacent city by change it to vector<adjCity*> adj
 			-- i just comment the cities.erase() function out just for now"
+			-- fixed
 
 
 ==== Copyright 2015 by Theerarun Tubnonghee ====
